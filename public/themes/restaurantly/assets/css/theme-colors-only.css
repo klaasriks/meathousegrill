@@ -1,0 +1,674 @@
+/**
+ * Meathouse Grill - Theme Colours Only
+ * Generated from uploaded main.css.
+ *
+ * IMPORTANT:
+ * - This file only changes colours and CSS variables.
+ * - It does not change spacing, layout, flex, sizing, positioning, margins or padding.
+ * - Load this file AFTER your original main.css.
+ */
+
+/*--------------------------------------------------------------
+# Core Theme Colour Variables Only
+--------------------------------------------------------------*/
+:root {
+  /* Global colours */
+  --background-color: #fbf7ef;
+  --default-color: #3f3f3f;
+  --heading-color: #1f1f1f;
+  --accent-color: #e31b23;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  /* Existing custom green variable */
+  --theme-green-color: #4c7b30;
+
+  /* Nav colours */
+  --nav-color: #222222;
+  --nav-hover-color: #e31b23;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #222222;
+  --nav-dropdown-hover-color: #e31b23;
+}
+
+/*--------------------------------------------------------------
+# Colour Presets Only
+--------------------------------------------------------------*/
+.light-background {
+  --background-color: #ffffff;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #fbf7ef;
+  --default-color: #3f3f3f;
+  --heading-color: #1f1f1f;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# General Colours Only
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+}
+
+a {
+  color: var(--accent-color);
+}
+
+a:hover {
+  color: #b9141a;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+}
+
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+}
+
+/*--------------------------------------------------------------
+# Logo Colours Only
+--------------------------------------------------------------*/
+.sitename {
+  color: var(--accent-color) !important;
+}
+
+.tagline {
+  color: var(--theme-green-color) !important;
+}
+
+/*--------------------------------------------------------------
+# Header Colours Only
+--------------------------------------------------------------*/
+.header {
+  --background-color: rgba(255, 255, 255, 0.96);
+  color: var(--default-color);
+}
+
+.header .topbar {
+  background-color: var(--theme-green-color);
+  color: #ffffff;
+}
+
+.header .topbar .contact-info i,
+.header .topbar .contact-info i a,
+.header .topbar .contact-info i span,
+.header .topbar .languages ul,
+.header .topbar .languages ul a {
+  color: #ffffff;
+}
+
+.header .topbar .contact-info i a:hover,
+.header .topbar .languages ul a:hover {
+  color: #ffd447;
+}
+
+.header .branding {
+  background-color: var(--background-color);
+  border-bottom-color: #eadfce;
+}
+
+.scrolled .header {
+  --background-color: #ffffff;
+}
+
+.scrolled .header .branding {
+  border-color: #eadfce;
+}
+
+/*--------------------------------------------------------------
+# Navigation Colours Only
+--------------------------------------------------------------*/
+@media (min-width: 1200px) {
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-color);
+  }
+
+  .navmenu li:hover > a,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-hover-color);
+  }
+
+  .navmenu .dropdown ul {
+    background: var(--nav-dropdown-background-color);
+    border-color: #eadfce;
+  }
+
+  .navmenu .dropdown ul a {
+    color: var(--nav-dropdown-color);
+  }
+
+  .navmenu .dropdown ul a:hover,
+  .navmenu .dropdown ul .active:hover,
+  .navmenu .dropdown ul li:hover > a {
+    color: var(--nav-dropdown-hover-color);
+  }
+}
+
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    color: var(--nav-color);
+  }
+
+  .navmenu ul {
+    background-color: var(--nav-mobile-background-color);
+    border-color: #eadfce;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-dropdown-color);
+  }
+
+  .navmenu a:hover,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  }
+
+  .navmenu a i:hover,
+  .navmenu a:focus i:hover,
+  .navmenu .active i,
+  .navmenu .active:focus i {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .navmenu .dropdown ul {
+    background-color: var(--nav-dropdown-background-color);
+    border-color: #eadfce;
+  }
+
+  .mobile-nav-active .navmenu {
+    background: rgba(33, 37, 41, 0.35);
+  }
+}
+
+/*--------------------------------------------------------------
+# Buttons / Accents Colours Only
+--------------------------------------------------------------*/
+.pulsating-play-btn {
+  background: radial-gradient(var(--accent-color) 50%, color-mix(in srgb, var(--accent-color), transparent 75%) 52%);
+}
+
+.pulsating-play-btn:before {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 30%);
+}
+
+.pulsating-play-btn:hover:after {
+  border-left-color: var(--accent-color);
+}
+
+.pulsating-order-now-btn {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+.pulsating-order-now-btn::before {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 35%);
+}
+
+.pulsating-order-now-btn::after {
+  background: var(--accent-color);
+}
+
+.pulsating-order-now-btn:hover {
+  color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# Hero Colours Only
+--------------------------------------------------------------*/
+.hero {
+  color: #ffffff;
+}
+
+.hero:before {
+  background: rgba(0, 0, 0, 0.30);
+}
+
+.hero h2,
+.hero p {
+  color: #ffffff;
+}
+
+.hero h2 span {
+  color: #ffd447;
+}
+
+.hero .cta-btn {
+  color: #ffffff;
+  border-color: var(--accent-color);
+}
+
+.hero .cta-btn:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# Section Title Colours Only
+--------------------------------------------------------------*/
+.section-title h2 {
+  color: #777777;
+}
+
+.section-title h2::after {
+  background: var(--accent-color);
+}
+
+.section-title p {
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Page Title Colours Only
+--------------------------------------------------------------*/
+.page-title {
+  color: var(--default-color);
+  background-color: var(--background-color);
+}
+
+.page-title:before {
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+.page-title h1 {
+  color: var(--heading-color);
+}
+
+.page-title .breadcrumbs ol li + li::before {
+  color: #8a8a8a;
+}
+
+/*--------------------------------------------------------------
+# About Colours Only
+--------------------------------------------------------------*/
+.about:before {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.about .content .fst-italic {
+  color: #555555;
+}
+
+.about .content ul i {
+  color: var(--accent-color);
+}
+
+.about .about-img {
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+/*--------------------------------------------------------------
+# Why Us Colours Only
+--------------------------------------------------------------*/
+.why-us .card-item {
+  background: var(--surface-color);
+}
+
+.why-us .card-item span {
+  color: var(--accent-color);
+}
+
+.why-us .card-item h4 a {
+  color: var(--heading-color);
+}
+
+.why-us .card-item p {
+  color: #666666;
+}
+
+.why-us .card-item:hover {
+  background: var(--accent-color);
+}
+
+.why-us .card-item:hover span,
+.why-us .card-item:hover h4 a,
+.why-us .card-item:hover p {
+  color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# Menu Colours Only
+--------------------------------------------------------------*/
+.menu {
+  background-color: #fffaf2;
+}
+
+.menu .menu-filters li {
+  color: var(--default-color);
+}
+
+.menu .menu-filters li:hover,
+.menu .menu-filters li.filter-active {
+  color: var(--accent-color);
+}
+
+.menu .menu-img {
+  border-color: #fff0cd;
+}
+
+.menu .menu-content::after,
+.menu .menu-content-upgrade::after {
+  color: #d8cdbb;
+}
+
+.menu .menu-content a,
+.menu .menu-content-upgrade a {
+  color: var(--heading-color);
+  background: var(--background-color);
+}
+
+.menu .menu-content a:hover,
+.menu .menu-content-upgrade a:hover {
+  color: var(--accent-color);
+}
+
+.menu .menu-content span {
+  background: var(--background-color);
+  color: var(--accent-color);
+}
+
+.menu .menu-content-upgrade span {
+  background: var(--background-color);
+  color: var(--theme-green-color);
+}
+
+.menu .menu-ingredients {
+  color: #777777;
+}
+
+/*--------------------------------------------------------------
+# Specials Colours Only
+--------------------------------------------------------------*/
+.specials .nav-link {
+  color: var(--heading-color);
+  border-right-color: var(--accent-color);
+}
+
+.specials .nav-link:hover {
+  color: var(--accent-color);
+}
+
+.specials .nav-link.active {
+  color: #ffffff;
+  background-color: var(--accent-color);
+}
+
+.specials .details p {
+  color: #666666;
+}
+
+/*--------------------------------------------------------------
+# Events Colours Only
+--------------------------------------------------------------*/
+.events {
+  --default-color: #ffffff;
+  --background-color: #000000;
+  --heading-color: #ffffff;
+}
+
+.events:before {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.events .event-item ul i,
+.events .swiper-pagination .swiper-pagination-bullet-active {
+  color: var(--accent-color);
+  background-color: var(--accent-color);
+}
+
+.events .event-item .price span {
+  border-bottom-color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Forms Colours Only
+--------------------------------------------------------------*/
+.php-email-form .error-message {
+  background: #df1529;
+  color: #ffffff;
+}
+
+.php-email-form .sent-message {
+  background: #059652;
+  color: #ffffff;
+}
+
+.php-email-form .loading {
+  background: var(--surface-color);
+}
+
+.php-email-form .loading:before {
+  border-color: var(--accent-color);
+  border-top-color: var(--surface-color);
+}
+
+.book-a-table .reservation-form-bg {
+  background: var(--surface-color);
+}
+
+.book-a-table .php-email-form input[type=text],
+.book-a-table .php-email-form input[type=email],
+.book-a-table .php-email-form input[type=number],
+.book-a-table .php-email-form input[type=date],
+.book-a-table .php-email-form input[type=time],
+.book-a-table .php-email-form textarea,
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
+  color: var(--heading-color);
+  background-color: #ffffff;
+  border-color: #eadfce;
+}
+
+.book-a-table .php-email-form input[type=text]:focus,
+.book-a-table .php-email-form input[type=email]:focus,
+.book-a-table .php-email-form input[type=number]:focus,
+.book-a-table .php-email-form input[type=date]:focus,
+.book-a-table .php-email-form input[type=time]:focus,
+.book-a-table .php-email-form textarea:focus,
+.contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.book-a-table .php-email-form input[type=text]::placeholder,
+.book-a-table .php-email-form input[type=email]::placeholder,
+.book-a-table .php-email-form input[type=number]::placeholder,
+.book-a-table .php-email-form input[type=date]::placeholder,
+.book-a-table .php-email-form input[type=time]::placeholder,
+.book-a-table .php-email-form textarea::placeholder,
+.contact .php-email-form input[type=text]::placeholder,
+.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: #999999;
+}
+
+.book-a-table .php-email-form button[type=submit],
+.contact .php-email-form button[type=submit] {
+  color: #ffffff;
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+}
+
+.book-a-table .php-email-form button[type=submit]:hover,
+.contact .php-email-form button[type=submit]:hover {
+  background: #b9141a;
+  border-color: #b9141a;
+}
+
+/*--------------------------------------------------------------
+# Testimonials / Gallery / Chefs Colours Only
+--------------------------------------------------------------*/
+.testimonials .testimonial-item p {
+  background: var(--surface-color);
+  color: var(--default-color);
+}
+
+.testimonials .testimonial-item .testimonial-img {
+  border-color: var(--background-color);
+}
+
+.testimonials .testimonial-item h3 {
+  color: var(--heading-color);
+}
+
+.testimonials .testimonial-item h4 {
+  color: #777777;
+}
+
+.testimonials .testimonial-item .quote-icon-left,
+.testimonials .testimonial-item .quote-icon-right {
+  color: color-mix(in srgb, var(--accent-color), transparent 50%);
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet {
+  background-color: var(--background-color);
+  border-color: var(--accent-color);
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+.gallery .gallery-item {
+  border-right-color: var(--background-color);
+  border-bottom-color: var(--background-color);
+}
+
+.chefs {
+  --default-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+.chefs .member .social a:hover {
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Contact Colours Only
+--------------------------------------------------------------*/
+.contact {
+  background-color: #fffaf2;
+  border-bottom-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.contact .info-item i {
+  color: #ffffff;
+  background: var(--accent-color);
+}
+
+.contact .info-item h3 {
+  color: var(--heading-color);
+}
+
+.contact .info-item p {
+  color: #666666;
+}
+
+/*--------------------------------------------------------------
+# Footer Colours Only
+--------------------------------------------------------------*/
+.footer {
+  color: var(--default-color);
+  background-color: #ffffff;
+}
+
+.footer .footer-top,
+.footer .copyright {
+  border-color: #eadfce;
+}
+
+.footer .footer-about .logo span,
+.footer h4 {
+  color: var(--heading-color);
+}
+
+.footer .footer-about p,
+.footer .footer-contact p,
+.footer .copyright p,
+.footer .credits {
+  color: var(--default-color);
+}
+
+.footer .social-links a,
+.footer .footer-links ul a {
+  color: #666666;
+  border-color: #d8cdbb;
+}
+
+.footer .social-links a:hover,
+.footer .footer-links ul a:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.footer .footer-newsletter .newsletter-form {
+  background-color: #ffffff;
+  border-color: #eadfce;
+}
+
+.footer .footer-newsletter .newsletter-form:focus-within {
+  border-color: var(--accent-color);
+}
+
+.footer .footer-newsletter .newsletter-form input[type=email] {
+  background-color: #ffffff;
+  color: var(--heading-color);
+}
+
+.footer .footer-newsletter .newsletter-form input[type=submit] {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+.footer .footer-newsletter .newsletter-form input[type=submit]:hover {
+  background: #b9141a;
+}
+
+/*--------------------------------------------------------------
+# Preloader / Scroll Top Colours Only
+--------------------------------------------------------------*/
+#preloader {
+  background: var(--background-color);
+}
+
+#preloader:before {
+  border-color: var(--accent-color) transparent var(--theme-green-color) transparent;
+}
+
+.scroll-top {
+  background-color: var(--accent-color);
+}
+
+.scroll-top i {
+  color: #ffffff;
+}
+
+.scroll-top:hover {
+  background-color: #b9141a;
+  color: #ffffff;
+}
