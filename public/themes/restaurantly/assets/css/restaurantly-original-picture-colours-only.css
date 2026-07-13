@@ -1,0 +1,280 @@
+/**
+* Meathouse Grill - Original Restaurantly CSS Colour Patch Only
+* Load this file AFTER the original Restaurantly stylesheet.
+* This file only updates colour values to match the supplied menu picture.
+* No layout, spacing, sizing, positioning, transitions, animations, or structure is changed.
+*/
+
+/*--------------------------------------------------------------
+# Picture Colours Only
+--------------------------------------------------------------*/
+:root {
+  --background-color: #fcfaf5;
+  --default-color: #5a5149;
+  --heading-color: #2c2c2c;
+  --accent-color: #d70000;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+:root {
+  --nav-color: #2c2c2c;
+  --nav-hover-color: #3f6f1d;
+  --theme-green-color: #3f6f1d;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #2c2c2c;
+  --nav-dropdown-hover-color: #3f6f1d;
+}
+
+.light-background {
+  --background-color: #ffffff;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #fcfaf5;
+  --default-color: #5a5149;
+  --heading-color: #2c2c2c;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# Hard-coded Colour Replacements Only
+--------------------------------------------------------------*/
+.sitename {
+  color: #d70000 !important;
+}
+
+.tagline {
+  color: #3f6f1d !important;
+}
+
+a:hover {
+  color: #f0a100;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+}
+
+.php-email-form .sent-message {
+  background: #3f6f1d;
+}
+
+.pulsating-play-btn:before {
+  background: rgba(215, 0, 0, 0);
+}
+
+.pulsating-order-now-btn {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+.pulsating-order-now-btn::after {
+  background: var(--accent-color);
+}
+
+.header {
+  --background-color: rgba(255, 255, 255, 0.92);
+}
+
+.header .btn-book-a-table:hover,
+.header .btn-book-a-table:focus:hover {
+  color: #ffffff;
+}
+
+.scrolled .header {
+  --background-color: #fcfaf5;
+}
+
+.navmenu ul,
+.navmenu .dropdown ul {
+  border-color: #ddd2bf;
+}
+
+.navmenu a i,
+.navmenu a:focus i {
+  background-color: #fff1ed;
+}
+
+.navmenu .dropdown ul ul {
+  background-color: rgba(215, 0, 0, 0.06);
+}
+
+.navmenu .dropdown>.dropdown-active {
+  background-color: rgba(215, 0, 0, 0.05);
+}
+
+.mobile-nav-active .navmenu {
+  background: rgba(252, 250, 245, 0.88);
+}
+
+.footer .footer-top,
+.footer .copyright {
+  border-color: #ddd2bf;
+}
+
+.footer .social-links a {
+  border-color: #cbbba5;
+  color: #5a5149;
+}
+
+.footer .footer-links ul a {
+  color: #5a5149;
+}
+
+.footer .footer-newsletter .newsletter-form {
+  border-color: #ddd2bf;
+}
+
+.footer .footer-newsletter .newsletter-form input[type=submit]:hover {
+  background: #f0a100;
+}
+
+#preloader:before {
+  border-color: var(--accent-color) transparent #f0a100 transparent;
+}
+
+.scroll-top:hover {
+  background-color: #f0a100;
+}
+
+.page-title:before {
+  background-color: rgba(255, 255, 255, 0.36);
+}
+
+.page-title .breadcrumbs ol li+li::before {
+  color: #8a7a70;
+}
+
+.section-title h2 {
+  color: #3f6f1d;
+}
+
+.section-title p {
+  color: var(--accent-color);
+}
+
+.hero:before {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.hero p {
+  color: #5a5149;
+}
+
+.hero .cta-btn:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+.about:before {
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.about .content .fst-italic {
+  color: #6f625a;
+}
+
+.about .about-img {
+  border-color: #f2e3d2;
+}
+
+.why-us .card-item {
+  background: #ffffff;
+}
+
+.why-us .card-item p {
+  color: #73655d;
+}
+
+.menu {
+  background-color: #f4ede3;
+}
+
+.menu .menu-img {
+  border-color: #fff0dc;
+}
+
+.menu .menu-content::after,
+.menu .menu-content-upgrade::after {
+  color: #b8a99e;
+}
+
+.menu .menu-ingredients {
+  color: #8a7a70;
+}
+
+.specials .details p {
+  color: #5a5149;
+}
+
+.events {
+  --background-color: #fcfaf5;
+  --default-color: #ffffff;
+  --heading-color: #2c2c2c;
+}
+
+.events:before {
+  background-color: rgba(255, 255, 255, 0.36);
+}
+
+.events .swiper-pagination .swiper-pagination-bullet {
+  background-color: #a3968c;
+}
+
+.book-a-table .reservation-form-bg,
+.testimonials .testimonial-item p {
+  background: #ffffff;
+}
+
+.book-a-table .php-email-form input[type=text],
+.book-a-table .php-email-form input[type=email],
+.book-a-table .php-email-form input[type=number],
+.book-a-table .php-email-form input[type=date],
+.book-a-table .php-email-form input[type=time],
+.book-a-table .php-email-form textarea,
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
+  background-color: #ffffff;
+  border-color: #ddd2bf;
+  color: var(--default-color);
+}
+
+.book-a-table .php-email-form input[type=text]::placeholder,
+.book-a-table .php-email-form input[type=email]::placeholder,
+.book-a-table .php-email-form input[type=number]::placeholder,
+.book-a-table .php-email-form input[type=date]::placeholder,
+.book-a-table .php-email-form input[type=time]::placeholder,
+.book-a-table .php-email-form textarea::placeholder {
+  color: #a3968c;
+}
+
+.testimonials .testimonial-item h4,
+.chefs .member .social a {
+  color: #5a5149;
+}
+
+.testimonials .testimonial-item .quote-icon-left,
+.testimonials .testimonial-item .quote-icon-right {
+  color: var(--accent-color);
+}
+
+.contact {
+  background-color: #f4ede3;
+  border-bottom-color: #ddd2bf;
+}
+
+.contact .php-email-form input[type=text]::placeholder,
+.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: var(--accent-color);
+}

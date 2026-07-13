@@ -36,6 +36,13 @@ onMounted(() => {
     }
 });
 
+const selectedMenuItems = computed(() => {
+    const categories = props.menu.menu_category ?? [];
+    const category = categories.find((menuCategory: any) => String(menuCategory.id) === String(selectedCategory.value));
+
+    return category?.menu_items ?? [];
+});
+
 const total = computed(() => {
     return subtotal.value;
 });
@@ -66,7 +73,7 @@ const proceedToCheckout = () => {
                                 class="cta-btn"
                                 v-for="menu_category in menu.menu_category"
                                 :key="menu_category.id"
-                                :class="{ active: selectedCategory === menu_category.id }"
+                                :class="{ active: String(selectedCategory) === String(menu_category.id) }"
                                 @click="selectedCategory = menu_category.id"
                             >
                                 {{ menu_category.name }}
@@ -75,19 +82,22 @@ const proceedToCheckout = () => {
                     </div>
                 </div>
 
-                <div class="row g-4">
-                    <template
-                        v-for="menu_category in menu.menu_category"
-                        :key="menu_category.id"
+                <div class="row g-3" :key="selectedCategory">
+                    <div
+                        v-for="menu_item in selectedMenuItems"
+                        class="col-md-6 col-sm-12 d-flex"
+                        :key="`${selectedCategory}-${menu_item.id}`"
                     >
-                        <div
-                            v-for="menu_item in menu_category.menu_items"
-                            class="col-md-6 col-sm-12"
-                            :class="menu_category.slug"
-                            :key="menu_item.id"
-                            v-show="selectedCategory === menu_category.id"
-                        >
-                            <div class="menu-card">
+                        <div class="menu-card">
+                            <div class="menu-thumb" v-if="menu_item.image">
+                                <img
+                                    :src="menu_item.image"
+                                    :alt="menu_item.name"
+                                    class="menu-img"
+                                />
+                            </div>
+
+                            <div class="menu-details">
                                 <div class="item-top">
                                     <div class="item-info">
                                         <h3>{{ menu_item.name }}</h3>
@@ -104,7 +114,7 @@ const proceedToCheckout = () => {
                                         class="btn primary"
                                         @click="addToCart(menu_item)"
                                     >
-                                        + Add
+                                        Add
                                     </button>
 
                                     <button
@@ -125,7 +135,7 @@ const proceedToCheckout = () => {
                                 </div>
                             </div>
                         </div>
-                    </template>
+                    </div>
                 </div>
             </div>
 
@@ -228,30 +238,30 @@ const proceedToCheckout = () => {
 
 <style scoped>
 /* ==========================================
-   MODERN CREATIVE GRILL THEME VARIABLES
+   PROFESSIONAL MEATHOUSE ORDERING THEME
+   Compact professional cards + stable cart behavior
 ========================================== */
 .order-page {
-    --page-bg: #fff7ee;
-    --surface: rgba(255, 255, 255, .92);
-    --surface-solid: #ffffff;
-    --surface-soft: #fff0e5;
-    --text: #261b16;
-    --muted: #6b5b52;
-    --muted-soft: #9a8171;
-    --primary: #f04a2a;
-    --primary-hover: #df3517;
-    --primary-soft: #fff0eb;
-    --orange: #ff8a2a;
-    --yellow: #ffcf4d;
-    --green: #7fa14b;
-    --cream: #fff9f2;
-    --border: #f0dfcc;
-    --shadow: 0 12px 30px rgba(83, 45, 23, .08);
-    --shadow-hover: 0 20px 45px rgba(83, 45, 23, .14);
+    --page-bg: #ffffff;
+    --surface: #ffffff;
+    --surface-soft: #faf8f5;
+    --text: #1f1f1f;
+    --muted: #666666;
+    --muted-soft: #8a8a8a;
+    --primary: #b62323;
+    --primary-hover: #971d1d;
+    --primary-soft: #fff5f3;
+    --green: #47632f;
+    --gold: #c79a3b;
+    --border: #e7e0d6;
+    --border-strong: #d7c9b7;
+    --shadow: 0 6px 18px rgba(31, 31, 31, .04);
+    --shadow-hover: 0 12px 26px rgba(31, 31, 31, .075);
 
     position: relative;
-    padding: 170px 0 80px;
+    padding: 165px 0 80px;
     color: var(--text);
+    background: #ffffff;
 }
 
 .order-page::before {
@@ -259,48 +269,42 @@ const proceedToCheckout = () => {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background:
-        radial-gradient(circle at 12% 12%, rgba(255, 207, 77, .24), transparent 28%),
-        radial-gradient(circle at 88% 20%, rgba(240, 74, 42, .16), transparent 26%),
-        linear-gradient(180deg, #fff9f2 0%, #fff3e6 100%);
+    background: #ffffff;
     z-index: -1;
 }
 
-/* ==========================================
-   SECTION HEADING
-========================================== */
 .section-heading {
     position: relative;
-    margin-bottom: 20px;
-    padding: 8px 0 2px;
+    margin-bottom: 14px;
+    padding: 6px 0 2px;
 }
 
 .section-heading span {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--primary);
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.1px;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 .section-heading span::before {
     content: "";
-    width: 28px;
-    height: 4px;
+    width: 24px;
+    height: 3px;
     border-radius: 999px;
-    background: linear-gradient(90deg, var(--primary), var(--orange));
+    background: var(--gold);
 }
 
 .section-heading h2 {
     color: var(--text);
-    font-size: 38px;
-    font-weight: 950;
-    letter-spacing: -.8px;
-    margin: 0 0 6px;
+    font-size: 34px;
+    font-weight: 850;
+    letter-spacing: -.6px;
+    margin: 0 0 5px;
 }
 
 .section-heading p {
@@ -309,84 +313,101 @@ const proceedToCheckout = () => {
     font-size: 15px;
 }
 
-/* ==========================================
-   CATEGORY MENU
-========================================== */
 .order-menu {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    padding: 15px 0 35px;
+    gap: 9px;
+    padding: 12px 0 24px;
 }
 
 .order-menu .cta-btn {
-    color: var(--muted);
+    color: var(--text);
     border: 1px solid var(--border);
-    background: rgba(255, 255, 255, .84);
-    backdrop-filter: blur(14px);
-    font-weight: 900;
+    background: #ffffff;
+    font-weight: 750;
     font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-transform: none;
+    letter-spacing: .2px;
     display: inline-block;
-    padding: 12px 24px;
-    border-radius: 999px;
-    transition: all .25s ease;
-    box-shadow: 0 8px 20px rgba(83, 45, 23, .05);
+    padding: 10px 16px;
+    border-radius: 9px;
+    transition: all .2s ease;
+    box-shadow: none;
 }
 
 .order-menu .cta-btn:hover {
-    border-color: rgba(240, 74, 42, .42);
+    border-color: var(--border-strong);
     color: var(--primary);
-    background: var(--primary-soft);
-    transform: translateY(-2px);
+    background: #ffffff;
+    transform: translateY(-1px);
 }
 
 .order-menu .cta-btn.active {
-    background: linear-gradient(135deg, var(--primary), var(--orange));
-    border-color: transparent;
+    background: var(--primary);
+    border-color: var(--primary);
     color: #ffffff;
-    box-shadow: 0 14px 30px rgba(240, 74, 42, .24);
+    box-shadow: 0 8px 18px rgba(182, 35, 35, .16);
 }
 
-/* ==========================================
-   MENU CARD
-========================================== */
 .menu-card {
-    position: relative;
+    width: 100%;
+    height: 148px;
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
     overflow: hidden;
-    background: var(--surface);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(240, 223, 204, .95);
-    border-radius: 26px;
-    padding: 26px;
-    height: 100%;
-    transition: all .25s ease;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    transition: all .2s ease;
     box-shadow: var(--shadow);
 }
 
-.menu-card::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 5px;
-    background: linear-gradient(90deg, var(--primary), var(--orange), var(--yellow));
-    opacity: .85;
+.menu-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-hover);
 }
 
-.menu-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(240, 74, 42, .34);
-    box-shadow: var(--shadow-hover);
+.menu-card:not(:has(.menu-thumb)) {
+    grid-template-columns: 1fr;
+}
+
+.menu-thumb {
+    position: relative;
+    height: 148px;
+    overflow: hidden;
+    background: #f6f1ea;
+    border-right: 1px solid var(--border);
+}
+
+.menu-img {
+    width: 100%;
+    height: 148px;
+    display: block;
+    object-fit: cover;
+    transition: transform .3s ease;
+}
+
+.menu-card:hover .menu-img {
+    transform: scale(1.03);
+}
+
+.menu-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 12px;
 }
 
 .item-top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 18px;
-    margin-bottom: 24px;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex: 1;
+    min-width: 0;
 }
 
 .item-info {
@@ -394,66 +415,68 @@ const proceedToCheckout = () => {
 }
 
 .item-top h3 {
-    margin: 0 0 10px;
+    margin: 0 0 5px;
     color: var(--text);
-    font-size: 23px;
-    font-weight: 950;
-    letter-spacing: -.3px;
-    line-height: 1.25;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: -.1px;
+    line-height: 1.22;
 }
 
 .desc {
     margin: 0;
     color: var(--muted);
-    font-size: 15px;
-    line-height: 1.65;
+    font-size: 12px;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .price {
     color: var(--primary);
-    font-size: 30px;
-    font-weight: 950;
+    font-size: 15px;
+    font-weight: 850;
     white-space: nowrap;
-    line-height: 1;
-    padding: 8px 10px;
-    border-radius: 14px;
-    background: var(--primary-soft);
+    line-height: 1.2;
+    padding: 0;
+    background: transparent;
 }
 
-/* ==========================================
-   ACTION BUTTONS
-========================================== */
 .actions {
     display: flex;
-    gap: 12px;
-    margin-top: 24px;
+    gap: 6px;
+    margin-top: auto;
 }
 
 .actions .btn {
     flex: 1;
-    border-radius: 15px;
-    padding: 13px 16px;
-    font-size: 14px;
-    font-weight: 950;
-    transition: all .25s ease;
-    border: none;
+    border-radius: 7px;
+    padding: 7px 7px;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.1;
+    transition: all .2s ease;
+    border: 1px solid transparent;
 }
 
 .actions .btn.primary {
-    background: linear-gradient(135deg, var(--primary), var(--orange));
-    border: 1px solid transparent;
+    background: var(--primary);
+    border-color: var(--primary);
     color: #ffffff;
-    box-shadow: 0 12px 24px rgba(240, 74, 42, .22);
+    box-shadow: 0 7px 16px rgba(182, 35, 35, .12);
 }
 
 .actions .btn.primary:hover {
-    background: linear-gradient(135deg, var(--primary-hover), var(--primary));
-    transform: translateY(-2px);
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-1px);
 }
 
 .actions .btn.alt {
-    background: #ffffff;
-    border: 1px solid rgba(127, 161, 75, .5);
+    background: var(--surface-soft);
+    border-color: var(--border);
     color: var(--green);
 }
 
@@ -461,30 +484,18 @@ const proceedToCheckout = () => {
     background: var(--green);
     border-color: var(--green);
     color: #ffffff;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
-/* ==========================================
-   CART
-========================================== */
 .cart-card {
     position: sticky;
     top: 120px;
     overflow: hidden;
-    background: rgba(255, 255, 255, .94);
-    backdrop-filter: blur(18px);
+    background: #ffffff;
     border: 1px solid var(--border);
-    border-radius: 28px;
-    padding: 28px;
-    box-shadow: 0 18px 45px rgba(83, 45, 23, .11);
-}
-
-.cart-card::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 6px;
-    background: linear-gradient(90deg, var(--primary), var(--orange), var(--yellow));
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 28px rgba(31, 31, 31, .07);
 }
 
 .cart-header {
@@ -492,16 +503,16 @@ const proceedToCheckout = () => {
     justify-content: space-between;
     align-items: flex-start;
     gap: 15px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 18px;
+    padding-bottom: 16px;
 }
 
 .cart-label {
     display: block;
-    color: var(--primary);
-    font-size: 12px;
-    font-weight: 950;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 850;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 5px;
@@ -510,22 +521,23 @@ const proceedToCheckout = () => {
 .cart-header h3 {
     color: var(--text);
     margin: 0;
-    font-size: 28px;
-    font-weight: 950;
+    font-size: 24px;
+    font-weight: 850;
 }
 
 .cart-count {
-    background: linear-gradient(135deg, var(--primary), var(--orange));
-    color: #ffffff;
-    padding: 8px 14px;
+    background: #f6f1ea;
+    color: var(--text);
+    padding: 7px 12px;
+    border: 1px solid var(--border);
     border-radius: 999px;
     font-size: 12px;
-    font-weight: 950;
+    font-weight: 800;
     white-space: nowrap;
 }
 
 .cart-items {
-    min-height: 290px;
+    min-height: 280px;
     max-height: 420px;
     overflow-y: auto;
     padding-right: 4px;
@@ -533,31 +545,31 @@ const proceedToCheckout = () => {
 
 .cart-empty {
     text-align: center;
-    padding: 55px 15px;
+    padding: 50px 15px;
     color: var(--muted);
 }
 
 .cart-empty i {
-    font-size: 58px;
+    font-size: 48px;
     color: var(--primary);
     display: block;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
 }
 
 .cart-empty h5 {
     color: var(--text);
-    margin-bottom: 10px;
-    font-size: 22px;
-    font-weight: 950;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 850;
 }
 
 .cart-empty p {
     margin: 0;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .cart-item {
-    padding: 16px 0;
+    padding: 15px 0;
     border-bottom: 1px solid var(--border);
 }
 
@@ -573,7 +585,7 @@ const proceedToCheckout = () => {
     color: var(--text);
     margin: 0 0 5px;
     font-size: 15px;
-    font-weight: 950;
+    font-weight: 800;
     line-height: 1.35;
 }
 
@@ -583,14 +595,14 @@ const proceedToCheckout = () => {
 }
 
 .remove-btn {
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     border: 1px solid var(--border);
-    background: var(--surface-solid);
+    background: #ffffff;
     color: var(--muted-soft);
     line-height: 1;
-    font-size: 18px;
+    font-size: 16px;
     transition: all .2s ease;
 }
 
@@ -611,19 +623,19 @@ const proceedToCheckout = () => {
     display: inline-flex;
     align-items: center;
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: 8px;
     overflow: hidden;
-    background: var(--surface-soft);
+    background: #ffffff;
 }
 
 .quantity-control button {
-    width: 32px;
-    height: 30px;
+    width: 31px;
+    height: 29px;
     border: none;
     background: transparent;
     color: var(--primary);
-    font-size: 18px;
-    font-weight: 950;
+    font-size: 16px;
+    font-weight: 850;
     transition: all .2s ease;
 }
 
@@ -633,30 +645,30 @@ const proceedToCheckout = () => {
 }
 
 .quantity-control span {
-    min-width: 34px;
+    min-width: 32px;
     text-align: center;
     color: var(--text);
-    font-weight: 950;
+    font-weight: 850;
     font-size: 14px;
 }
 
 .cart-item-price {
     color: var(--primary);
-    font-weight: 950;
+    font-weight: 850;
     font-size: 15px;
     white-space: nowrap;
 }
 
 .cart-summary {
-    margin-top: 22px;
+    margin-top: 20px;
     border-top: 1px solid var(--border);
-    padding-top: 20px;
+    padding-top: 18px;
 }
 
 .cart-summary > div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 13px;
+    margin-bottom: 12px;
     color: var(--muted);
     font-size: 15px;
 }
@@ -670,39 +682,39 @@ const proceedToCheckout = () => {
 }
 
 .cart-total {
-    margin-top: 16px;
-    padding-top: 16px;
+    margin-top: 14px;
+    padding-top: 14px;
     border-top: 1px solid var(--border);
-    font-size: 20px !important;
-    font-weight: 950;
+    font-size: 18px !important;
+    font-weight: 850;
 }
 
 .cart-total strong {
     color: var(--primary);
-    font-size: 27px;
+    font-size: 24px;
 }
 
 .checkout-btn {
     width: 100%;
-    margin-top: 22px;
-    height: 54px;
+    margin-top: 20px;
+    height: 50px;
     border: none;
-    border-radius: 16px;
-    background: linear-gradient(135deg, var(--primary), var(--orange));
+    border-radius: 10px;
+    background: var(--primary);
     color: #ffffff;
-    font-weight: 950;
-    letter-spacing: .3px;
-    transition: all .25s ease;
-    box-shadow: 0 16px 34px rgba(240, 74, 42, .24);
+    font-weight: 850;
+    letter-spacing: .2px;
+    transition: all .2s ease;
+    box-shadow: 0 10px 22px rgba(182, 35, 35, .18);
 }
 
 .checkout-btn:hover:not(:disabled) {
-    background: linear-gradient(135deg, var(--primary-hover), var(--primary));
-    transform: translateY(-2px);
+    background: var(--primary-hover);
+    transform: translateY(-1px);
 }
 
 .checkout-btn:disabled {
-    background: #d7cec6;
+    background: #dadada;
     color: rgba(37, 37, 37, .45);
     box-shadow: none;
     cursor: not-allowed;
@@ -711,13 +723,13 @@ const proceedToCheckout = () => {
 .clear-cart-btn {
     width: 100%;
     margin-top: 12px;
-    height: 44px;
-    border-radius: 14px;
+    height: 42px;
+    border-radius: 10px;
     background: transparent;
     border: 1px solid var(--border);
     color: var(--muted);
-    font-weight: 900;
-    transition: all .25s ease;
+    font-weight: 800;
+    transition: all .2s ease;
 }
 
 .clear-cart-btn:hover {
@@ -726,9 +738,6 @@ const proceedToCheckout = () => {
     background: var(--primary-soft);
 }
 
-/* ==========================================
-   SCROLLBAR
-========================================== */
 .cart-items::-webkit-scrollbar,
 ::-webkit-scrollbar {
     width: 8px;
@@ -736,13 +745,13 @@ const proceedToCheckout = () => {
 
 .cart-items::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track {
-    background: #fff1e5;
+    background: #f6f1ea;
     border-radius: 999px;
 }
 
 .cart-items::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb {
-    background: #e0c7b0;
+    background: #d7c9b7;
     border-radius: 999px;
 }
 
@@ -752,13 +761,10 @@ const proceedToCheckout = () => {
 }
 
 html {
-    scrollbar-color: #e0c7b0 #fff1e5;
+    scrollbar-color: #d7c9b7 #f6f1ea;
     scrollbar-width: thin;
 }
 
-/* ==========================================
-   RESPONSIVE
-========================================== */
 @media (max-width: 991px) {
     .order-page {
         padding-top: 145px;
@@ -776,13 +782,28 @@ html {
         font-size: 30px;
     }
 
+    .menu-card {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .menu-thumb {
+        height: 170px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .menu-img {
+        height: 170px;
+    }
+
     .item-top {
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
     }
 
     .price {
-        font-size: 28px;
+        font-size: 18px;
     }
 
     .actions {
@@ -794,7 +815,7 @@ html {
     }
 
     .cart-header h3 {
-        font-size: 24px;
+        font-size: 22px;
     }
 }
 
@@ -805,9 +826,9 @@ html {
         padding: 12px 16px;
     }
 
-    .menu-card,
+    .menu-details,
     .cart-card {
-        padding: 22px;
+        padding: 18px;
     }
 }
 </style>

@@ -343,29 +343,33 @@ const placeOrder = async () => {
 </template>
 
 <style scoped>
+/* ==========================================
+   PROFESSIONAL MEATHOUSE CHECKOUT THEME
+   Matches Order page: white, compact, mature
+========================================== */
 .checkout-page {
-    --page-bg: #fff7ee;
-    --surface: rgba(255, 255, 255, .92);
-    --surface-solid: #ffffff;
-    --surface-soft: #fff0e5;
-    --text: #261b16;
-    --muted: #6b5b52;
-    --muted-soft: #9a8171;
-    --primary: #f04a2a;
-    --primary-hover: #df3517;
-    --primary-soft: #fff0eb;
-    --orange: #ff8a2a;
-    --yellow: #ffcf4d;
-    --green: #7fa14b;
-    --border: #f0dfcc;
-    --danger: #ef3f37;
-    --danger-soft: #fff0ef;
-    --shadow: 0 12px 30px rgba(83, 45, 23, .08);
-    --shadow-hover: 0 20px 45px rgba(83, 45, 23, .14);
+    --page-bg: #ffffff;
+    --surface: #ffffff;
+    --surface-soft: #faf8f5;
+    --text: #1f1f1f;
+    --muted: #666666;
+    --muted-soft: #8a8a8a;
+    --primary: #b62323;
+    --primary-hover: #971d1d;
+    --primary-soft: #fff5f3;
+    --green: #47632f;
+    --gold: #c79a3b;
+    --border: #e7e0d6;
+    --border-strong: #d7c9b7;
+    --danger: #b42318;
+    --danger-soft: #fff5f3;
+    --shadow: 0 6px 18px rgba(31, 31, 31, .04);
+    --shadow-hover: 0 12px 26px rgba(31, 31, 31, .075);
 
     position: relative;
-    padding: 170px 0 80px;
+    padding: 165px 0 80px;
     color: var(--text);
+    background: #ffffff;
 }
 
 .checkout-page::before {
@@ -373,15 +377,12 @@ const placeOrder = async () => {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background:
-        radial-gradient(circle at 10% 14%, rgba(255, 207, 77, .24), transparent 28%),
-        radial-gradient(circle at 88% 24%, rgba(240, 74, 42, .16), transparent 26%),
-        linear-gradient(180deg, #fff9f2 0%, #fff3e6 100%);
+    background: #ffffff;
     z-index: -1;
 }
 
 .checkout-title {
-    margin-bottom: 34px;
+    margin-bottom: 30px;
 }
 
 .checkout-title span,
@@ -390,35 +391,35 @@ const placeOrder = async () => {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--primary);
+    color: var(--green);
     font-size: 12px;
-    font-weight: 950;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1.4px;
+    letter-spacing: 1.1px;
 }
 
 .checkout-title span::before,
 .card-heading span::before,
 .summary-header span::before {
     content: "";
-    width: 26px;
-    height: 4px;
+    width: 24px;
+    height: 3px;
     border-radius: 999px;
-    background: linear-gradient(90deg, var(--primary), var(--orange));
+    background: var(--gold);
 }
 
 .checkout-title h1 {
     color: var(--text);
-    font-size: 44px;
-    font-weight: 950;
-    letter-spacing: -.9px;
-    margin: 8px 0;
+    font-size: 36px;
+    font-weight: 850;
+    letter-spacing: -.6px;
+    margin: 8px 0 5px;
 }
 
 .checkout-title p {
     color: var(--muted);
     margin: 0;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .checkout-card,
@@ -426,29 +427,20 @@ const placeOrder = async () => {
 .success-alert {
     position: relative;
     overflow: hidden;
-    background: var(--surface);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(240, 223, 204, .95);
-    border-radius: 28px;
-    padding: 28px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
     box-shadow: var(--shadow);
 }
 
-.checkout-card::before,
-.summary-card::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 6px;
-    background: linear-gradient(90deg, var(--primary), var(--orange), var(--yellow));
-}
-
 .checkout-card {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .checkout-card:hover,
 .summary-card:hover {
+    border-color: var(--border-strong);
     box-shadow: var(--shadow-hover);
 }
 
@@ -458,43 +450,44 @@ const placeOrder = async () => {
     justify-content: space-between;
     align-items: flex-start;
     gap: 15px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 18px;
+    padding-bottom: 16px;
 }
 
 .card-heading h2,
 .summary-header h2 {
     color: var(--text);
     margin: 4px 0 0;
-    font-size: 26px;
-    font-weight: 950;
-    letter-spacing: -.4px;
+    font-size: 24px;
+    font-weight: 850;
+    letter-spacing: -.25px;
 }
 
 .summary-header strong {
-    background: linear-gradient(135deg, var(--primary), var(--orange));
-    color: #ffffff;
-    padding: 8px 14px;
+    background: #f6f1ea;
+    color: var(--text);
+    padding: 7px 12px;
+    border: 1px solid var(--border);
     border-radius: 999px;
     font-size: 12px;
+    font-weight: 800;
     white-space: nowrap;
-    box-shadow: 0 12px 24px rgba(240, 74, 42, .22);
 }
 
 .logged-in-notice {
     display: grid;
     gap: 4px;
-    margin-bottom: 20px;
-    padding: 14px 16px;
-    border-radius: 16px;
-    background: #f7ffee;
-    border: 1px solid rgba(127, 161, 75, .45);
+    margin-bottom: 18px;
+    padding: 13px 15px;
+    border-radius: 11px;
+    background: #f4f8ef;
+    border: 1px solid rgba(71, 99, 47, .24);
 }
 
 .logged-in-notice strong {
     color: var(--text);
-    font-weight: 950;
+    font-weight: 850;
 }
 
 .logged-in-notice span {
@@ -506,32 +499,32 @@ const placeOrder = async () => {
 label {
     display: block;
     color: var(--text);
-    font-size: 14px;
-    font-weight: 900;
-    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 7px;
 }
 
 input,
 textarea {
     width: 100%;
     border: 1px solid var(--border);
-    background: var(--surface-solid);
+    background: #ffffff;
     color: var(--text);
-    border-radius: 15px;
-    padding: 14px 15px;
-    transition: all .25s ease;
+    border-radius: 10px;
+    padding: 12px 13px;
+    transition: all .2s ease;
     outline: none;
 }
 
 textarea {
-    min-height: 110px;
+    min-height: 100px;
     resize: vertical;
 }
 
 input:focus,
 textarea:focus {
-    border-color: rgba(240, 74, 42, .55);
-    box-shadow: 0 0 0 4px rgba(240, 74, 42, .10);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(182, 35, 35, .08);
 }
 
 input::placeholder,
@@ -541,50 +534,46 @@ textarea::placeholder {
 
 .invalid {
     border-color: var(--danger) !important;
-    box-shadow: 0 0 0 4px rgba(239, 63, 55, .10) !important;
+    box-shadow: 0 0 0 3px rgba(180, 35, 24, .10) !important;
 }
 
 small {
     display: block;
     color: var(--danger);
     font-size: 12px;
-    font-weight: 800;
-    margin-top: 7px;
+    font-weight: 750;
+    margin-top: 6px;
 }
 
 .fulfilment-options,
 .payment-options {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-}
-
-.payment-options {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
 }
 
 .option-card,
 .payment-card {
     display: flex;
-    gap: 12px;
+    gap: 11px;
     align-items: flex-start;
     border: 1px solid var(--border);
-    background: rgba(255, 255, 255, .82);
-    border-radius: 20px;
-    padding: 18px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
     cursor: pointer;
-    transition: all .25s ease;
+    transition: all .2s ease;
     margin: 0;
-    box-shadow: 0 8px 20px rgba(83, 45, 23, .04);
+    box-shadow: none;
 }
 
 .option-card:hover,
 .payment-card:hover,
 .option-card.active,
 .payment-card.active {
-    border-color: rgba(240, 74, 42, .42);
+    border-color: var(--primary);
     background: var(--primary-soft);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 .option-card input,
@@ -597,25 +586,25 @@ small {
 .option-card strong,
 .payment-card strong {
     color: var(--text);
-    font-size: 15px;
-    font-weight: 950;
+    font-size: 14px;
+    font-weight: 850;
 }
 
 .option-card p {
     color: var(--muted);
-    margin: 5px 0 10px;
+    margin: 4px 0 9px;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.45;
 }
 
 .option-card span {
     color: var(--green);
-    font-weight: 950;
+    font-weight: 850;
 }
 
 .delivery-address,
 .order-notes {
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .summary-card {
@@ -625,30 +614,32 @@ small {
 
 .summary-empty {
     text-align: center;
-    padding: 45px 15px;
+    padding: 46px 15px;
     color: var(--muted);
 }
 
 .summary-empty i {
     display: block;
     color: var(--primary);
-    font-size: 52px;
+    font-size: 48px;
     margin-bottom: 16px;
 }
 
 .summary-empty h5 {
     color: var(--text);
-    font-size: 21px;
-    font-weight: 950;
+    font-size: 20px;
+    font-weight: 850;
     margin-bottom: 8px;
 }
 
 .summary-empty p {
     color: var(--muted);
+    margin: 0;
+    font-size: 14px;
 }
 
 .summary-items {
-    max-height: 380px;
+    max-height: 400px;
     overflow-y: auto;
     padding-right: 5px;
 }
@@ -657,40 +648,40 @@ small {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 16px;
-    padding: 17px 0;
+    gap: 15px;
+    padding: 15px 0;
     border-bottom: 1px solid var(--border);
 }
 
 .item-left h6 {
     color: var(--text);
     font-size: 15px;
-    font-weight: 950;
+    font-weight: 800;
     margin: 0 0 5px;
     line-height: 1.35;
 }
 
 .item-left small {
     color: var(--muted-soft);
-    margin: 0 0 12px;
+    margin: 0 0 11px;
 }
 
 .item-right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 16px;
+    gap: 14px;
 }
 
 .item-right button {
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     border: 1px solid var(--border);
-    background: var(--surface-solid);
+    background: #ffffff;
     color: var(--muted-soft);
     line-height: 1;
-    font-size: 18px;
+    font-size: 16px;
     transition: all .2s ease;
 }
 
@@ -703,26 +694,26 @@ small {
 .item-right strong {
     color: var(--primary);
     white-space: nowrap;
-    font-weight: 950;
+    font-weight: 850;
 }
 
 .quantity-control {
     display: inline-flex;
     align-items: center;
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: 8px;
     overflow: hidden;
-    background: var(--surface-soft);
+    background: #ffffff;
 }
 
 .quantity-control button {
-    width: 32px;
-    height: 30px;
+    width: 31px;
+    height: 29px;
     border: none;
     background: transparent;
     color: var(--primary);
-    font-size: 18px;
-    font-weight: 950;
+    font-size: 16px;
+    font-weight: 850;
     transition: all .2s ease;
 }
 
@@ -732,23 +723,23 @@ small {
 }
 
 .quantity-control span {
-    min-width: 34px;
+    min-width: 32px;
     text-align: center;
     color: var(--text);
-    font-weight: 950;
+    font-weight: 850;
     font-size: 14px;
 }
 
 .summary-totals {
-    margin-top: 22px;
+    margin-top: 20px;
     border-top: 1px solid var(--border);
-    padding-top: 20px;
+    padding-top: 18px;
 }
 
 .summary-totals > div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 13px;
+    margin-bottom: 12px;
     color: var(--muted);
     font-size: 15px;
 }
@@ -758,39 +749,39 @@ small {
 }
 
 .grand-total {
-    margin-top: 16px;
-    padding-top: 16px;
+    margin-top: 14px;
+    padding-top: 14px;
     border-top: 1px solid var(--border);
-    font-size: 21px !important;
-    font-weight: 950;
+    font-size: 18px !important;
+    font-weight: 850;
 }
 
 .grand-total strong {
     color: var(--primary);
-    font-size: 29px;
+    font-size: 24px;
 }
 
 .place-order-btn {
     width: 100%;
-    margin-top: 22px;
-    height: 56px;
+    margin-top: 20px;
+    height: 50px;
     border: none;
-    border-radius: 16px;
-    background: linear-gradient(135deg, var(--primary), var(--orange));
+    border-radius: 10px;
+    background: var(--primary);
     color: #ffffff;
-    font-weight: 950;
-    letter-spacing: .4px;
-    box-shadow: 0 16px 34px rgba(240, 74, 42, .24);
-    transition: all .25s ease;
+    font-weight: 850;
+    letter-spacing: .2px;
+    box-shadow: 0 10px 22px rgba(182, 35, 35, .18);
+    transition: all .2s ease;
 }
 
 .place-order-btn:hover:not(:disabled) {
-    background: linear-gradient(135deg, var(--primary-hover), var(--primary));
-    transform: translateY(-2px);
+    background: var(--primary-hover);
+    transform: translateY(-1px);
 }
 
 .place-order-btn:disabled {
-    background: #d7cec6;
+    background: #dadada;
     color: rgba(37, 37, 37, .45);
     box-shadow: none;
     cursor: not-allowed;
@@ -800,46 +791,46 @@ small {
     color: var(--muted-soft);
     font-size: 12px;
     line-height: 1.6;
-    margin: 14px 0 0;
+    margin: 13px 0 0;
     text-align: center;
 }
 
 .cart-error {
     background: var(--danger-soft);
-    border: 1px solid rgba(239, 63, 55, .34);
+    border: 1px solid rgba(180, 35, 24, .28);
     color: var(--danger);
-    border-radius: 14px;
-    padding: 12px 14px;
-    font-weight: 900;
-    margin-bottom: 16px;
+    border-radius: 10px;
+    padding: 11px 13px;
+    font-weight: 800;
+    margin-bottom: 15px;
 }
 
 .success-alert {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 24px;
-    border-color: rgba(127, 161, 75, .45);
-    background: #f7ffee;
+    gap: 15px;
+    margin-bottom: 22px;
+    border-color: rgba(71, 99, 47, .24);
+    background: #f4f8ef;
 }
 
 .success-icon {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
     display: grid;
     place-items: center;
     border-radius: 50%;
     background: var(--green);
     color: #ffffff;
-    font-weight: 950;
-    font-size: 22px;
+    font-weight: 850;
+    font-size: 20px;
     flex: 0 0 auto;
 }
 
 .success-alert h4 {
     color: var(--text);
     margin: 0 0 5px;
-    font-weight: 950;
+    font-weight: 850;
 }
 
 .success-alert p {
@@ -854,13 +845,13 @@ small {
 
 .summary-items::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track {
-    background: #fff1e5;
+    background: #f6f1ea;
     border-radius: 999px;
 }
 
 .summary-items::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb {
-    background: #e0c7b0;
+    background: #d7c9b7;
     border-radius: 999px;
 }
 
@@ -870,7 +861,7 @@ small {
 }
 
 html {
-    scrollbar-color: #e0c7b0 #fff1e5;
+    scrollbar-color: #d7c9b7 #f6f1ea;
     scrollbar-width: thin;
 }
 
@@ -887,7 +878,7 @@ html {
 
 @media (max-width: 768px) {
     .checkout-title h1 {
-        font-size: 34px;
+        font-size: 32px;
     }
 
     .fulfilment-options,
@@ -898,7 +889,7 @@ html {
     .checkout-card,
     .summary-card,
     .success-alert {
-        padding: 22px;
+        padding: 20px;
     }
 
     .card-heading,

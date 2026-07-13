@@ -145,7 +145,7 @@ onBeforeUnmount(() => {
 
                         <li>
                             <a href="/#specials">
-                                Specials
+                                Featured Favourites
                             </a>
                         </li>
 

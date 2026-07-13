@@ -149,26 +149,31 @@ const continueShopping = () => {
 </template>
 
 <style scoped>
+/* ==========================================
+   PROFESSIONAL MEATHOUSE CART THEME
+   Matches final Order + Checkout pages
+========================================== */
 .cart-page {
-    --surface: rgba(255, 255, 255, .92);
-    --surface-solid: #ffffff;
-    --surface-soft: #fff0e5;
-    --text: #261b16;
-    --muted: #6b5b52;
-    --muted-soft: #9a8171;
-    --primary: #f04a2a;
-    --primary-hover: #df3517;
-    --primary-soft: #fff0eb;
-    --orange: #ff8a2a;
-    --yellow: #ffcf4d;
-    --green: #7fa14b;
-    --border: #f0dfcc;
-    --shadow: 0 12px 30px rgba(83, 45, 23, .08);
-    --shadow-hover: 0 20px 45px rgba(83, 45, 23, .14);
+    --page-bg: #ffffff;
+    --surface: #ffffff;
+    --surface-soft: #faf8f5;
+    --text: #1f1f1f;
+    --muted: #666666;
+    --muted-soft: #8a8a8a;
+    --primary: #b62323;
+    --primary-hover: #971d1d;
+    --primary-soft: #fff5f3;
+    --green: #47632f;
+    --gold: #c79a3b;
+    --border: #e7e0d6;
+    --border-strong: #d7c9b7;
+    --shadow: 0 6px 18px rgba(31, 31, 31, .04);
+    --shadow-hover: 0 12px 26px rgba(31, 31, 31, .075);
 
     position: relative;
-    padding: 170px 0 80px;
+    padding: 165px 0 80px;
     color: var(--text);
+    background: #ffffff;
 }
 
 .cart-page::before {
@@ -176,15 +181,12 @@ const continueShopping = () => {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background:
-        radial-gradient(circle at 10% 14%, rgba(255, 207, 77, .24), transparent 28%),
-        radial-gradient(circle at 88% 24%, rgba(240, 74, 42, .16), transparent 26%),
-        linear-gradient(180deg, #fff9f2 0%, #fff3e6 100%);
+    background: #ffffff;
     z-index: -1;
 }
 
 .cart-title {
-    margin-bottom: 34px;
+    margin-bottom: 30px;
 }
 
 .cart-title span,
@@ -193,60 +195,51 @@ const continueShopping = () => {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--primary);
+    color: var(--green);
     font-size: 12px;
-    font-weight: 950;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1.4px;
+    letter-spacing: 1.1px;
 }
 
 .cart-title span::before,
 .card-heading span::before,
 .summary-header span::before {
     content: "";
-    width: 26px;
-    height: 4px;
+    width: 24px;
+    height: 3px;
     border-radius: 999px;
-    background: linear-gradient(90deg, var(--primary), var(--orange));
+    background: var(--gold);
 }
 
 .cart-title h1 {
     color: var(--text);
-    font-size: 44px;
-    font-weight: 950;
-    letter-spacing: -.9px;
-    margin: 8px 0;
+    font-size: 36px;
+    font-weight: 850;
+    letter-spacing: -.6px;
+    margin: 8px 0 5px;
 }
 
 .cart-title p {
     color: var(--muted);
     margin: 0;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .cart-list-card,
 .summary-card {
     position: relative;
     overflow: hidden;
-    background: var(--surface);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(240, 223, 204, .95);
-    border-radius: 28px;
-    padding: 28px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
     box-shadow: var(--shadow);
-}
-
-.cart-list-card::before,
-.summary-card::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 6px;
-    background: linear-gradient(90deg, var(--primary), var(--orange), var(--yellow));
 }
 
 .cart-list-card:hover,
 .summary-card:hover {
+    border-color: var(--border-strong);
     box-shadow: var(--shadow-hover);
 }
 
@@ -256,53 +249,55 @@ const continueShopping = () => {
     justify-content: space-between;
     align-items: flex-start;
     gap: 15px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 18px;
+    padding-bottom: 16px;
 }
 
 .card-heading h2,
 .summary-header h2 {
     color: var(--text);
     margin: 4px 0 0;
-    font-size: 26px;
-    font-weight: 950;
-    letter-spacing: -.4px;
+    font-size: 24px;
+    font-weight: 850;
+    letter-spacing: -.25px;
 }
 
 .summary-header strong {
-    background: linear-gradient(135deg, var(--primary), var(--orange));
-    color: #ffffff;
-    padding: 8px 14px;
+    background: #f6f1ea;
+    color: var(--text);
+    padding: 7px 12px;
+    border: 1px solid var(--border);
     border-radius: 999px;
     font-size: 12px;
+    font-weight: 800;
     white-space: nowrap;
-    box-shadow: 0 12px 24px rgba(240, 74, 42, .22);
 }
 
 .cart-empty {
     text-align: center;
-    padding: 55px 15px;
+    padding: 48px 15px;
     color: var(--muted);
 }
 
 .cart-empty i {
     display: block;
     color: var(--primary);
-    font-size: 56px;
+    font-size: 48px;
     margin-bottom: 16px;
 }
 
 .cart-empty h5 {
     color: var(--text);
-    font-size: 22px;
-    font-weight: 950;
+    font-size: 20px;
+    font-weight: 850;
     margin-bottom: 8px;
 }
 
 .cart-empty p {
     color: var(--muted);
     margin-bottom: 20px;
+    font-size: 14px;
 }
 
 .cart-items {
@@ -315,7 +310,7 @@ const continueShopping = () => {
     align-items: center;
     justify-content: space-between;
     gap: 18px;
-    padding: 18px 0;
+    padding: 15px 0;
     border-bottom: 1px solid var(--border);
 }
 
@@ -323,26 +318,34 @@ const continueShopping = () => {
     border-bottom: none;
 }
 
+.cart-item-info {
+    min-width: 0;
+}
+
 .cart-item-info h6 {
     color: var(--text);
-    font-size: 16px;
-    font-weight: 950;
+    font-size: 15px;
+    font-weight: 800;
     margin: 0 0 5px;
+    line-height: 1.35;
 }
 
 .cart-item-info small {
     color: var(--muted-soft);
+    font-size: 13px;
 }
 
 .cart-item-actions {
     display: flex;
     align-items: center;
     gap: 14px;
+    flex: 0 0 auto;
 }
 
 .cart-item-actions strong {
     color: var(--primary);
-    font-weight: 950;
+    font-weight: 850;
+    font-size: 15px;
     white-space: nowrap;
 }
 
@@ -350,19 +353,19 @@ const continueShopping = () => {
     display: inline-flex;
     align-items: center;
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: 8px;
     overflow: hidden;
-    background: var(--surface-soft);
+    background: #ffffff;
 }
 
 .quantity-control button {
-    width: 34px;
-    height: 32px;
+    width: 31px;
+    height: 29px;
     border: none;
     background: transparent;
     color: var(--primary);
-    font-size: 18px;
-    font-weight: 950;
+    font-size: 16px;
+    font-weight: 850;
     transition: all .2s ease;
 }
 
@@ -372,22 +375,22 @@ const continueShopping = () => {
 }
 
 .quantity-control span {
-    min-width: 36px;
+    min-width: 32px;
     text-align: center;
     color: var(--text);
-    font-weight: 950;
+    font-weight: 850;
     font-size: 14px;
 }
 
 .remove-btn {
-    width: 28px;
-    height: 28px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     border: 1px solid var(--border);
-    background: var(--surface-solid);
+    background: #ffffff;
     color: var(--muted-soft);
     line-height: 1;
-    font-size: 18px;
+    font-size: 16px;
     transition: all .2s ease;
 }
 
@@ -403,15 +406,15 @@ const continueShopping = () => {
 }
 
 .summary-totals {
-    margin-top: 6px;
+    margin-top: 4px;
     border-top: 1px solid var(--border);
-    padding-top: 20px;
+    padding-top: 18px;
 }
 
 .summary-totals > div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 13px;
+    margin-bottom: 12px;
     color: var(--muted);
     font-size: 15px;
 }
@@ -425,16 +428,16 @@ const continueShopping = () => {
 }
 
 .grand-total {
-    margin-top: 16px;
-    padding-top: 16px;
+    margin-top: 14px;
+    padding-top: 14px;
     border-top: 1px solid var(--border);
-    font-size: 21px !important;
-    font-weight: 950;
+    font-size: 18px !important;
+    font-weight: 850;
 }
 
 .grand-total strong {
     color: var(--primary);
-    font-size: 29px;
+    font-size: 24px;
 }
 
 .checkout-btn,
@@ -442,27 +445,27 @@ const continueShopping = () => {
 .clear-btn {
     width: 100%;
     margin-top: 14px;
-    height: 54px;
-    border-radius: 16px;
-    font-weight: 950;
-    letter-spacing: .3px;
-    transition: all .25s ease;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: 850;
+    letter-spacing: .2px;
+    transition: all .2s ease;
 }
 
 .checkout-btn {
     border: none;
-    background: linear-gradient(135deg, var(--primary), var(--orange));
+    background: var(--primary);
     color: #ffffff;
-    box-shadow: 0 16px 34px rgba(240, 74, 42, .24);
+    box-shadow: 0 10px 22px rgba(182, 35, 35, .18);
 }
 
 .checkout-btn:hover:not(:disabled) {
-    background: linear-gradient(135deg, var(--primary-hover), var(--primary));
-    transform: translateY(-2px);
+    background: var(--primary-hover);
+    transform: translateY(-1px);
 }
 
 .checkout-btn:disabled {
-    background: #d7cec6;
+    background: #dadada;
     color: rgba(37, 37, 37, .45);
     box-shadow: none;
     cursor: not-allowed;
@@ -470,14 +473,15 @@ const continueShopping = () => {
 
 .continue-btn {
     border: 1px solid var(--border);
-    background: rgba(255, 255, 255, .72);
+    background: #ffffff;
     color: var(--text);
 }
 
 .continue-btn:hover {
-    border-color: rgba(240, 74, 42, .42);
+    border-color: var(--primary);
     background: var(--primary-soft);
     color: var(--primary);
+    transform: translateY(-1px);
 }
 
 .clear-btn {
@@ -501,7 +505,7 @@ const continueShopping = () => {
     color: var(--muted-soft);
     font-size: 12px;
     line-height: 1.6;
-    margin: 14px 0 0;
+    margin: 13px 0 0;
     text-align: center;
 }
 
@@ -518,7 +522,7 @@ const continueShopping = () => {
 
 @media (max-width: 768px) {
     .cart-title h1 {
-        font-size: 34px;
+        font-size: 32px;
     }
 
     .cart-item {
@@ -529,11 +533,12 @@ const continueShopping = () => {
     .cart-item-actions {
         width: 100%;
         justify-content: space-between;
+        gap: 10px;
     }
 
     .cart-list-card,
     .summary-card {
-        padding: 22px;
+        padding: 20px;
     }
 
     .card-heading,

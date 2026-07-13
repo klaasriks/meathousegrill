@@ -27,9 +27,8 @@
         <link href="{{ asset('themes/restaurantly/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
         <!-- Main CSS File -->
-        <!-- <link href="{{ asset('themes/restaurantly/assets/css/main.css') }}" rel="stylesheet"> -->
-        <!-- <link href="{{ asset('themes/restaurantly/assets/css/meathouse-light-grill-theme.css') }}" rel="stylesheet"> -->
-        <link href="{{ asset('themes/restaurantly/assets/css/meathouse-modern-clean-theme.css') }}" rel="stylesheet">
+        <link href="{{ asset('themes/restaurantly/assets/css/main.css') }}" rel="stylesheet">
+        <link href="{{ asset('themes/restaurantly/assets/css/restaurantly-white-menu-picture-colours-only.css') }}" rel="stylesheet">
 
         <!-- =======================================================
         * Template Name: Restaurantly

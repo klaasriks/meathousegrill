@@ -1,0 +1,652 @@
+/**
+* Meathouse Grill - White Menu Picture Colour Patch Only
+* Load this file AFTER the original Restaurantly stylesheet.
+* Only colour values are overridden.
+* No layout, spacing, sizing, positioning, transitions, animations, or structure is changed.
+*/
+
+/*--------------------------------------------------------------
+# Picture-Matched Colours on Complete White Background
+--------------------------------------------------------------*/
+:root {
+  --background-color: #ffffff;
+  --default-color: #252525;
+  --heading-color: #222222;
+  --accent-color: #d70000;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+:root {
+  --nav-color: #222222;
+  --nav-hover-color: #3f6f1d;
+  --theme-green-color: #3f6f1d;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #222222;
+  --nav-dropdown-hover-color: #3f6f1d;
+}
+
+.light-background {
+  --background-color: #ffffff;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #ffffff;
+  --default-color: #252525;
+  --heading-color: #222222;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# Main Colour Overrides Only
+--------------------------------------------------------------*/
+body,
+section,
+.section,
+.page-title,
+.menu,
+.contact,
+.footer {
+  color: var(--default-color);
+  background-color: #ffffff;
+}
+
+a {
+  color: var(--accent-color);
+}
+
+a:hover {
+  color: #f0a100;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+}
+
+.sitename {
+  color: #d70000 !important;
+}
+
+.tagline {
+  color: #3f6f1d !important;
+}
+
+/*--------------------------------------------------------------
+# Form Message Colours Only
+--------------------------------------------------------------*/
+.php-email-form .error-message {
+  background: #df1529;
+  color: #ffffff;
+}
+
+.php-email-form .sent-message {
+  background: #3f6f1d;
+  color: #ffffff;
+}
+
+.php-email-form .loading {
+  background: var(--surface-color);
+}
+
+.php-email-form .loading:before {
+  border-color: var(--accent-color);
+  border-top-color: var(--surface-color);
+}
+
+/*--------------------------------------------------------------
+# Button Colours Only
+--------------------------------------------------------------*/
+.pulsating-play-btn {
+  background: radial-gradient(var(--accent-color) 50%, color-mix(in srgb, var(--accent-color), transparent 75%) 52%);
+}
+
+.pulsating-play-btn:before {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 30%);
+  background: rgba(215, 0, 0, 0);
+}
+
+.pulsating-play-btn:after,
+.pulsating-play-btn:hover:before {
+  border-left-color: #ffffff;
+}
+
+.pulsating-play-btn:hover:after {
+  border-left-color: var(--accent-color);
+}
+
+.pulsating-order-now-btn {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+.pulsating-order-now-btn::before {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 35%);
+}
+
+.pulsating-order-now-btn::after {
+  background: var(--accent-color);
+}
+
+.pulsating-order-now-btn:hover {
+  color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# Header and Navigation Colours Only
+--------------------------------------------------------------*/
+.header {
+  --background-color: rgba(255, 255, 255, 0.96);
+  color: var(--default-color);
+}
+
+.header .topbar .contact-info i,
+.header .topbar .languages ul {
+  color: var(--accent-color);
+}
+
+.header .topbar .contact-info i a,
+.header .topbar .contact-info i span,
+.header .topbar .languages ul a {
+  color: var(--default-color);
+}
+
+.header .topbar .contact-info i a:hover,
+.header .topbar .languages ul a:hover {
+  color: var(--accent-color);
+}
+
+.header .topbar .languages ul li+li::before {
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+}
+
+.header .branding {
+  background-color: var(--background-color);
+  border-bottom-color: #f1c789;
+}
+
+.header .logo h1 {
+  color: var(--heading-color);
+}
+
+.header .btn-book-a-table,
+.header .btn-book-a-table:focus {
+  color: var(--default-color);
+  border-color: var(--accent-color);
+}
+
+.header .btn-book-a-table:hover,
+.header .btn-book-a-table:focus:hover {
+  color: #ffffff;
+  background: var(--accent-color);
+}
+
+.scrolled .header {
+  --background-color: #ffffff;
+}
+
+.scrolled .header .branding {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+.navmenu a,
+.navmenu a:focus {
+  color: var(--nav-color);
+}
+
+.navmenu li:hover>a,
+.navmenu .active,
+.navmenu .active:focus {
+  color: var(--nav-hover-color);
+}
+
+.navmenu .dropdown ul,
+.navmenu ul {
+  background-color: var(--nav-dropdown-background-color);
+}
+
+.navmenu .dropdown ul a,
+.navmenu a,
+.navmenu a:focus {
+  color: var(--nav-dropdown-color);
+}
+
+.navmenu .dropdown ul a:hover,
+.navmenu .dropdown ul .active:hover,
+.navmenu .dropdown ul li:hover>a,
+.navmenu a:hover,
+.navmenu .active,
+.navmenu .active:focus {
+  color: var(--nav-dropdown-hover-color);
+}
+
+.mobile-nav-toggle {
+  color: var(--nav-color);
+}
+
+.navmenu ul,
+.navmenu .dropdown ul {
+  border-color: #f1c789;
+}
+
+.navmenu a i,
+.navmenu a:focus i {
+  background-color: #fff4e6;
+}
+
+.navmenu a i:hover,
+.navmenu a:focus i:hover,
+.navmenu .active i,
+.navmenu .active:focus i {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.navmenu .dropdown ul ul,
+.navmenu .dropdown>.dropdown-active {
+  background-color: rgba(215, 0, 0, 0.05);
+}
+
+.mobile-nav-active .mobile-nav-toggle {
+  color: #ffffff;
+}
+
+.mobile-nav-active .navmenu {
+  background: rgba(255, 255, 255, 0.90);
+}
+
+/*--------------------------------------------------------------
+# Footer Colours Only
+--------------------------------------------------------------*/
+.footer {
+  color: var(--default-color);
+  background-color: #ffffff;
+}
+
+.footer .footer-top,
+.footer .copyright {
+  border-color: #f1c789;
+}
+
+.footer .footer-about .logo span,
+.footer h4 {
+  color: var(--heading-color);
+}
+
+.footer .social-links a {
+  border-color: #f1c789;
+  color: #252525;
+}
+
+.footer .social-links a:hover,
+.footer .footer-links ul a:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.footer .footer-links ul a {
+  color: #252525;
+}
+
+.footer .footer-newsletter .newsletter-form {
+  border-color: #f1c789;
+  background-color: #ffffff;
+}
+
+.footer .footer-newsletter .newsletter-form:focus-within {
+  border-color: var(--accent-color);
+}
+
+.footer .footer-newsletter .newsletter-form input[type=email] {
+  background-color: #ffffff;
+  color: var(--default-color);
+}
+
+.footer .footer-newsletter .newsletter-form input[type=submit] {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.footer .footer-newsletter .newsletter-form input[type=submit]:hover {
+  background: #f0a100;
+}
+
+/*--------------------------------------------------------------
+# Utility Colours Only
+--------------------------------------------------------------*/
+#preloader {
+  background: #ffffff;
+}
+
+#preloader:before {
+  border-color: var(--accent-color) transparent #f0a100 transparent;
+}
+
+.scroll-top {
+  background-color: var(--accent-color);
+}
+
+.scroll-top i {
+  color: var(--contrast-color);
+}
+
+.scroll-top:hover {
+  background-color: #f0a100;
+  color: var(--contrast-color);
+}
+
+/*--------------------------------------------------------------
+# Page and Section Colours Only
+--------------------------------------------------------------*/
+.page-title:before {
+  background-color: rgba(255, 255, 255, 0.20);
+}
+
+.page-title .breadcrumbs ol li+li::before {
+  color: #7a7a7a;
+}
+
+.section-title h2 {
+  color: #3f6f1d;
+}
+
+.section-title h2::after {
+  background: var(--accent-color);
+}
+
+.section-title p {
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Hero Colours Only
+--------------------------------------------------------------*/
+.hero {
+  color: var(--default-color);
+  background-color: #ffffff;
+}
+
+.hero:before {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hero h2 span {
+  color: var(--accent-color);
+}
+
+.hero p {
+  color: #252525;
+}
+
+.hero .cta-btn {
+  color: var(--default-color);
+  border-color: var(--accent-color);
+}
+
+.hero .cta-btn:hover {
+  color: #ffffff;
+  background: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Content Section Colours Only
+--------------------------------------------------------------*/
+.about:before {
+  background: rgba(255, 255, 255, 0.50);
+}
+
+.about .content .fst-italic {
+  color: #4a4a4a;
+}
+
+.about .content ul i {
+  color: var(--accent-color);
+}
+
+.about .about-img {
+  border-color: #f1c789;
+}
+
+.why-us .card-item,
+.testimonials .testimonial-item p,
+.book-a-table .reservation-form-bg {
+  background: #ffffff;
+}
+
+.why-us .card-item span {
+  color: var(--accent-color);
+}
+
+.why-us .card-item h4 a {
+  color: var(--heading-color);
+}
+
+.why-us .card-item p {
+  color: #4a4a4a;
+}
+
+.why-us .card-item:hover {
+  background: var(--accent-color);
+}
+
+.why-us .card-item:hover span,
+.why-us .card-item:hover h4 a,
+.why-us .card-item:hover p {
+  color: var(--contrast-color);
+}
+
+/*--------------------------------------------------------------
+# Menu Colours Only
+--------------------------------------------------------------*/
+.menu,
+.contact {
+  background-color: #ffffff;
+}
+
+.menu .menu-filters li {
+  color: var(--default-color);
+}
+
+.menu .menu-filters li:hover,
+.menu .menu-filters li.filter-active {
+  color: var(--accent-color);
+}
+
+.menu .menu-img {
+  border-color: #fff4e6;
+}
+
+.menu .menu-content::after,
+.menu .menu-content-upgrade::after {
+  color: #cfc4b5;
+}
+
+.menu .menu-content a,
+.menu .menu-content-upgrade a {
+  color: var(--heading-color);
+  background: #ffffff;
+}
+
+.menu .menu-content a:hover,
+.menu .menu-content-upgrade a:hover {
+  color: var(--accent-color);
+}
+
+.menu .menu-content span {
+  background: #ffffff;
+  color: var(--accent-color);
+}
+
+.menu .menu-content-upgrade span {
+  background: #ffffff;
+  color: var(--theme-green-color);
+}
+
+.menu .menu-ingredients {
+  color: #575757;
+}
+
+/*--------------------------------------------------------------
+# Specials and Events Colours Only
+--------------------------------------------------------------*/
+.specials .nav-link {
+  color: var(--heading-color);
+  border-right-color: var(--accent-color);
+}
+
+.specials .nav-link:hover {
+  color: var(--accent-color);
+}
+
+.specials .nav-link.active {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+}
+
+.specials .details p {
+  color: #252525;
+}
+
+.events {
+  --default-color: #252525;
+  --background-color: #ffffff;
+  --heading-color: #222222;
+}
+
+.events:before {
+  background-color: rgba(255, 255, 255, 0.20);
+}
+
+.events .section-title h2 {
+  color: #3f6f1d;
+}
+
+.events .event-item .price span {
+  border-bottom-color: var(--accent-color);
+}
+
+.events .event-item ul i {
+  color: var(--accent-color);
+}
+
+.events .swiper-pagination .swiper-pagination-bullet {
+  background-color: #cfc4b5;
+}
+
+.events .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Forms, Testimonials, Chefs and Contact Colours Only
+--------------------------------------------------------------*/
+.book-a-table .php-email-form input[type=text],
+.book-a-table .php-email-form input[type=email],
+.book-a-table .php-email-form input[type=number],
+.book-a-table .php-email-form input[type=date],
+.book-a-table .php-email-form input[type=time],
+.book-a-table .php-email-form textarea,
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
+  color: var(--default-color);
+  background-color: #ffffff;
+  border-color: #f1c789;
+}
+
+.book-a-table .php-email-form input[type=text]:focus,
+.book-a-table .php-email-form input[type=email]:focus,
+.book-a-table .php-email-form input[type=number]:focus,
+.book-a-table .php-email-form input[type=date]:focus,
+.book-a-table .php-email-form input[type=time]:focus,
+.book-a-table .php-email-form textarea:focus,
+.contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.book-a-table .php-email-form input[type=text]::placeholder,
+.book-a-table .php-email-form input[type=email]::placeholder,
+.book-a-table .php-email-form input[type=number]::placeholder,
+.book-a-table .php-email-form input[type=date]::placeholder,
+.book-a-table .php-email-form input[type=time]::placeholder,
+.book-a-table .php-email-form textarea::placeholder {
+  color: #8a8a8a;
+}
+
+.book-a-table .php-email-form button[type=submit],
+.contact .php-email-form button[type=submit] {
+  color: var(--default-color);
+  border-color: var(--accent-color);
+  background: transparent;
+}
+
+.book-a-table .php-email-form button[type=submit]:hover,
+.contact .php-email-form button[type=submit]:hover {
+  color: #ffffff;
+  background: var(--accent-color);
+}
+
+.testimonials .testimonial-item .testimonial-img {
+  border-color: #ffffff;
+}
+
+.testimonials .testimonial-item h4,
+.chefs .member .social a {
+  color: #252525;
+}
+
+.testimonials .testimonial-item .quote-icon-left,
+.testimonials .testimonial-item .quote-icon-right {
+  color: var(--accent-color);
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet {
+  background-color: #ffffff;
+  border-color: var(--accent-color);
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+.gallery .gallery-item {
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.chefs {
+  --default-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+.chefs .member .member-info-content h4 {
+  color: var(--contrast-color);
+}
+
+.chefs .member .social a:hover {
+  color: var(--accent-color);
+}
+
+.contact {
+  border-bottom-color: #f1c789;
+}
+
+.contact .info-item i {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+}
+
+.contact .php-email-form input[type=text]::placeholder,
+.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: var(--accent-color);
+}

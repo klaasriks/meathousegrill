@@ -50,13 +50,93 @@
 </template>
 
 <style scoped>
+
+
+
+
+
+
 /* ==========================================
-   HERO READABILITY FIX - IMAGE STILL VISIBLE
+   FROSTED / MILKY TOPBAR ONLY
+   This only affects: class="topbar"
+========================================== */
+
+.topbar {
+    position: relative;
+    z-index: 1001;
+
+    background: rgba(255, 255, 255, 0.82) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.08);
+
+    color: #1f1f1f !important;
+}
+
+/* Extra milky layer */
+.topbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 255, 255, 0.78) 50%,
+        rgba(255, 255, 255, 0.95) 100%
+    );
+}
+
+/* Make all text inside topbar readable */
+.topbar,
+.topbar a,
+.topbar span,
+.topbar div {
+    color: #1f1f1f !important;
+    text-shadow: none !important;
+    font-weight: 600;
+}
+
+/* Icons in the topbar */
+.topbar i {
+    color: #b62323 !important;
+}
+
+/* Links hover */
+.topbar a:hover {
+    color: #971d1d !important;
+}
+
+/* Mobile stronger opacity */
+@media (max-width: 991px) {
+    .topbar {
+        background: rgba(255, 255, 255, 0.94) !important;
+    }
+}
+
+/* ==========================================
+   PREMIUM MEATHOUSE HERO
+   Professional flame-grilled landing section
 ========================================== */
 .hero {
+    --charcoal: #17120f;
+    --charcoal-soft: #241b16;
+    --ember: #b62323;
+    --ember-dark: #8f1b1b;
+    --flame: #d97a1c;
+    --gold: #c79a3b;
+    --cream: #fffaf3;
+    --muted-cream: rgba(255, 250, 243, .78);
+    --shadow: 0 18px 52px rgba(23, 18, 15, .30);
+
     position: relative;
     overflow: hidden;
     min-height: 100vh;
+    background: var(--charcoal);
 }
 
 .hero img {
@@ -67,9 +147,11 @@
     height: 100%;
     object-fit: cover;
     z-index: 1;
+    filter: saturate(.95) contrast(1.05) brightness(.78);
+    transform: scale(1.015);
 }
 
-/* Soft left-side readability layer only; does not block the full image */
+/* Dark premium overlay: image remains visible but text becomes clean and readable */
 .hero-readable-overlay {
     position: absolute;
     inset: 0;
@@ -78,94 +160,121 @@
     background:
         linear-gradient(
             90deg,
-            rgba(255, 255, 255, .58) 0%,
-            rgba(255, 255, 255, .42) 25%,
-            rgba(255, 255, 255, .18) 48%,
-            rgba(255, 255, 255, 0) 72%
+            rgba(15, 11, 9, .94) 0%,
+            rgba(23, 18, 15, .88) 28%,
+            rgba(23, 18, 15, .58) 54%,
+            rgba(23, 18, 15, .25) 78%,
+            rgba(23, 18, 15, .38) 100%
         ),
         radial-gradient(
-            circle at 20% 50%,
-            rgba(255, 249, 242, .46),
-            rgba(255, 249, 242, 0) 32%
+            circle at 22% 46%,
+            rgba(182, 35, 35, .23),
+            rgba(182, 35, 35, 0) 30%
+        ),
+        radial-gradient(
+            circle at 30% 74%,
+            rgba(217, 122, 28, .18),
+            rgba(217, 122, 28, 0) 34%
         );
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(
+            135deg,
+            rgba(255,255,255,.026) 0,
+            rgba(255,255,255,.026) 1px,
+            transparent 1px,
+            transparent 13px
+        );
+    opacity: .46;
 }
 
 .hero .container {
     position: relative;
-    z-index: 3;
+    z-index: 4;
 }
 
-/* No blocking card - content floats directly over image */
 .hero-content {
-    max-width: 790px;
-    padding-top: 18px;
+    max-width: 760px;
+    padding-top: 22px;
 }
 
 .hero-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
-    color: #f04a2a;
-    font-size: 13px;
-    font-weight: 900;
+    gap: 10px;
+    color: #f3c978;
+    font-size: 12px;
+    font-weight: 850;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 12px;
-    text-shadow: 0 2px 8px rgba(255, 255, 255, .72);
+    letter-spacing: 1.4px;
+    margin-bottom: 16px;
 }
 
 .hero-eyebrow::before {
     content: "";
     width: 30px;
-    height: 4px;
+    height: 3px;
     border-radius: 999px;
-    background: linear-gradient(90deg, #f04a2a, #ff8a2a);
-    box-shadow: 0 3px 12px rgba(240, 74, 42, .25);
+    background: linear-gradient(90deg, var(--ember), var(--flame), var(--gold));
+    box-shadow: 0 6px 18px rgba(217, 122, 28, .28);
 }
 
 .hero h2 {
     margin: 0;
-    color: #19110d;
-    font-size: clamp(35px, 4vw, 60px);
-    font-weight: 950;
-    line-height: 1.05;
-    letter-spacing: -1.3px;
-    text-shadow:
-        0 2px 10px rgba(255, 255, 255, .78),
-        0 12px 32px rgba(255, 249, 242, .38);
+    color: #ffffff;
+    font-size: clamp(42px, 4.4vw, 70px);
+    font-weight: 900;
+    line-height: 1.02;
+    letter-spacing: -1.8px;
+    text-shadow: 0 16px 38px rgba(0, 0, 0, .45);
 }
 
 .hero h2 span {
-    color: #f04a2a;
-    text-shadow:
-        0 2px 10px rgba(255, 255, 255, .76),
-        0 10px 25px rgba(240, 74, 42, .20);
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+}
+
+.hero h2 span::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    bottom: -6px;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--ember), var(--flame), var(--gold));
+    box-shadow: 0 8px 22px rgba(182, 35, 35, .30);
 }
 
 .hero-tagline {
-    color: #f04a2a !important;
-    font-size: clamp(18px, 2vw, 24px);
-    font-weight: 950;
-    letter-spacing: 1px;
-    margin: 18px 0 14px;
+    color: #f3c978 !important;
+    font-size: clamp(15px, 1.3vw, 18px);
+    font-weight: 850;
+    letter-spacing: 2px;
+    margin: 26px 0 14px;
     text-transform: uppercase;
-    text-shadow: 0 2px 10px rgba(255, 255, 255, .78);
 }
 
 .hero-description {
-    max-width: 770px;
-    color: #1f1712;
-    font-size: 18px;
-    line-height: 1.85;
-    font-weight: 600;
+    max-width: 700px;
+    color: var(--muted-cream);
+    font-size: 17px;
+    line-height: 1.82;
+    font-weight: 500;
     margin: 0;
-    text-shadow:
-        0 1px 8px rgba(255, 255, 255, .82),
-        0 8px 20px rgba(255, 249, 242, .30);
+    text-shadow: 0 10px 28px rgba(0, 0, 0, .34);
 }
 
 .hero-actions {
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
@@ -174,43 +283,42 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 170px;
-    padding: 13px 28px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: .8px;
-    transition: all .25s ease;
+    min-width: 160px;
+    padding: 13px 24px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 850;
+    text-transform: none;
+    letter-spacing: .25px;
+    transition: all .2s ease;
     text-decoration: none;
 }
 
 .primary-hero-btn {
     color: #ffffff !important;
-    background: linear-gradient(135deg, #f04a2a, #ff8a2a);
-    border: 1px solid transparent !important;
-    box-shadow: 0 14px 30px rgba(240, 74, 42, .28);
+    background: linear-gradient(135deg, var(--ember), var(--ember-dark));
+    border: 1px solid rgba(255,255,255,.08) !important;
+    box-shadow: 0 14px 30px rgba(182, 35, 35, .28);
 }
 
 .primary-hero-btn:hover {
     color: #ffffff !important;
-    background: linear-gradient(135deg, #df3517, #f04a2a);
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--ember-dark), #731515);
+    transform: translateY(-1px);
 }
 
 .secondary-hero-btn {
-    color: #f04a2a !important;
-    background: rgba(255, 255, 255, .38);
+    color: #fffaf3 !important;
+    background: rgba(255, 250, 243, .08);
+    border: 1px solid rgba(255, 250, 243, .32) !important;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, .65) !important;
-    box-shadow: 0 12px 26px rgba(61, 38, 22, .08);
 }
 
 .secondary-hero-btn:hover {
-    color: #ffffff !important;
-    background: #f04a2a;
-    border-color: #f04a2a !important;
-    transform: translateY(-2px);
+    color: var(--charcoal) !important;
+    background: #fffaf3;
+    border-color: #fffaf3 !important;
+    transform: translateY(-1px);
 }
 
 /* ==========================================
@@ -221,10 +329,11 @@
         background:
             linear-gradient(
                 180deg,
-                rgba(255, 255, 255, .72) 0%,
-                rgba(255, 255, 255, .46) 48%,
-                rgba(255, 255, 255, .12) 100%
-            );
+                rgba(15, 11, 9, .92) 0%,
+                rgba(23, 18, 15, .82) 50%,
+                rgba(23, 18, 15, .58) 100%
+            ),
+            radial-gradient(circle at 50% 20%, rgba(182,35,35,.18), transparent 36%);
     }
 
     .hero-content {
@@ -235,6 +344,11 @@
 
     .hero-eyebrow {
         justify-content: center;
+    }
+
+    .hero h2 span::after {
+        left: 8px;
+        right: 8px;
     }
 
     .hero-description {
@@ -254,16 +368,37 @@
     }
 
     .hero h2 {
-        font-size: 38px;
+        font-size: 40px;
     }
 
     .hero-tagline {
-        font-size: 16px;
+        font-size: 14px;
+        letter-spacing: 1.3px;
     }
 
     .hero .cta-btn,
     .hero .cta-btn:focus {
         width: 100%;
+    }
+}
+
+
+/*Custom Added by - Klaas */
+@media (min-width: 991px) {
+    .hero-readable-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,.75) 0px,
+                rgba(255,255,255,.60) 90px,
+                rgba(255,255,255,.25) 160px,
+                rgba(255,255,255,0) 260px
+            );
     }
 }
 </style>
