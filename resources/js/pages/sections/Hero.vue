@@ -51,73 +51,6 @@
 
 <style scoped>
 
-
-
-
-
-
-/* ==========================================
-   FROSTED / MILKY TOPBAR ONLY
-   This only affects: class="topbar"
-========================================== */
-
-.topbar {
-    position: relative;
-    z-index: 1001;
-
-    background: rgba(255, 255, 255, 0.82) !important;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.08);
-
-    color: #1f1f1f !important;
-}
-
-/* Extra milky layer */
-.topbar::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-
-    background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(255, 255, 255, 0.78) 50%,
-        rgba(255, 255, 255, 0.95) 100%
-    );
-}
-
-/* Make all text inside topbar readable */
-.topbar,
-.topbar a,
-.topbar span,
-.topbar div {
-    color: #1f1f1f !important;
-    text-shadow: none !important;
-    font-weight: 600;
-}
-
-/* Icons in the topbar */
-.topbar i {
-    color: #b62323 !important;
-}
-
-/* Links hover */
-.topbar a:hover {
-    color: #971d1d !important;
-}
-
-/* Mobile stronger opacity */
-@media (max-width: 991px) {
-    .topbar {
-        background: rgba(255, 255, 255, 0.94) !important;
-    }
-}
-
 /* ==========================================
    PREMIUM MEATHOUSE HERO
    Professional flame-grilled landing section
@@ -266,9 +199,9 @@
 .hero-description {
     max-width: 700px;
     color: var(--muted-cream);
-    font-size: 17px;
+    font-size: 21px;
     line-height: 1.82;
-    font-weight: 500;
+    font-weight: 700;
     margin: 0;
     text-shadow: 0 10px 28px rgba(0, 0, 0, .34);
 }
