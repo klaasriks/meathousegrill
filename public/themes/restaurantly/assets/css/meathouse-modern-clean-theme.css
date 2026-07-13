@@ -94,7 +94,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     opacity: 0.8;
-	color: var(--nav-hover-color) !important;
+	color: var(--theme-green-color) !important;
 	font-weight: 700;
     text-align: justify;
     text-align-last: justify;
