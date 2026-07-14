@@ -62,13 +62,14 @@
         </div>
 
         <div class="container copyright text-left mt-4">
-            <p>© <span>Copyright</span> <strong>Meathouse Grill</strong> <span>All Rights Reserved</span></p>
+            <span>© Copyright <strong>Meathouse Grill</strong> All Rights Reserved</span>
+            <div class="float-end">Website developed by <a href="https://www.rikscss.co.za" target="_blank">RiksCSS</a></div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you've purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Theme originally designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Website developed by <a href="https://www.rikscss.co.za" target="_blank">RiksCSS</a>
+                <!-- Theme originally designed by <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a> -->
             </div>
         </div>
 
