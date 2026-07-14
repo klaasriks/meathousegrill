@@ -2,7 +2,6 @@
 import Hero from '@/pages/sections/Hero.vue';
 import Menu from '@/pages/sections/Menu.vue';
 import Specials from '@/pages/sections/Specials.vue';
-import BookATable from '@/pages/sections/BookATable.vue';
 import Contact from '@/pages/sections/Contact.vue';
 import AppLayout from '@/layouts/restaurantly/AppLayout.vue';
 

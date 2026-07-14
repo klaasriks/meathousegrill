@@ -298,28 +298,34 @@ const logout = () => {
 </template>
 
 <style scoped>
+/* ==========================================
+   PROFESSIONAL MEATHOUSE PROFILE THEME
+   Matches final Cart / Checkout theme
+   Layout is unchanged
+========================================== */
 .profile-page {
-    --surface: rgba(255, 255, 255, .92);
-    --surface-solid: #ffffff;
-    --surface-soft: #fff0e5;
-    --text: #261b16;
-    --muted: #6b5b52;
-    --muted-soft: #9a8171;
-    --primary: #f04a2a;
-    --primary-hover: #df3517;
-    --primary-soft: #fff0eb;
-    --orange: #ff8a2a;
-    --yellow: #ffcf4d;
-    --green: #7fa14b;
-    --border: #f0dfcc;
-    --danger: #ef3f37;
-    --danger-soft: #fff0ef;
-    --shadow: 0 12px 30px rgba(83, 45, 23, .08);
-    --shadow-hover: 0 20px 45px rgba(83, 45, 23, .14);
+    --page-bg: #ffffff;
+    --surface: #ffffff;
+    --surface-soft: #faf8f5;
+    --text: #1f1f1f;
+    --muted: #666666;
+    --muted-soft: #8a8a8a;
+    --primary: #b62323;
+    --primary-hover: #971d1d;
+    --primary-soft: #fff5f3;
+    --green: #47632f;
+    --gold: #c79a3b;
+    --border: #e7e0d6;
+    --border-strong: #d7c9b7;
+    --danger: #b42318;
+    --danger-soft: #fff5f3;
+    --shadow: 0 6px 18px rgba(31, 31, 31, .04);
+    --shadow-hover: 0 12px 26px rgba(31, 31, 31, .075);
 
     position: relative;
-    padding: 170px 0 80px;
+    padding: 165px 0 80px;
     color: var(--text);
+    background: #ffffff;
 }
 
 .profile-page::before {
@@ -327,15 +333,12 @@ const logout = () => {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background:
-        radial-gradient(circle at 10% 14%, rgba(255, 207, 77, .24), transparent 28%),
-        radial-gradient(circle at 88% 24%, rgba(240, 74, 42, .16), transparent 26%),
-        linear-gradient(180deg, #fff9f2 0%, #fff3e6 100%);
+    background: #ffffff;
     z-index: -1;
 }
 
 .profile-title {
-    margin-bottom: 34px;
+    margin-bottom: 30px;
 }
 
 .profile-title span,
@@ -343,59 +346,50 @@ const logout = () => {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--primary);
+    color: var(--green);
     font-size: 12px;
-    font-weight: 950;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1.4px;
+    letter-spacing: 1.1px;
 }
 
 .profile-title span::before,
 .card-heading span::before {
     content: "";
-    width: 26px;
-    height: 4px;
+    width: 24px;
+    height: 3px;
     border-radius: 999px;
-    background: linear-gradient(90deg, var(--primary), var(--orange));
+    background: var(--gold);
 }
 
 .profile-title h1 {
     color: var(--text);
-    font-size: 44px;
-    font-weight: 950;
-    letter-spacing: -.9px;
-    margin: 8px 0;
+    font-size: 36px;
+    font-weight: 850;
+    letter-spacing: -.6px;
+    margin: 8px 0 5px;
 }
 
 .profile-title p {
     color: var(--muted);
     margin: 0;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .profile-summary-card,
 .profile-card {
     position: relative;
     overflow: hidden;
-    background: var(--surface);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(240, 223, 204, .95);
-    border-radius: 28px;
-    padding: 28px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
     box-shadow: var(--shadow);
-}
-
-.profile-summary-card::before,
-.profile-card::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 6px;
-    background: linear-gradient(90deg, var(--primary), var(--orange), var(--yellow));
 }
 
 .profile-summary-card:hover,
 .profile-card:hover {
+    border-color: var(--border-strong);
     box-shadow: var(--shadow-hover);
 }
 
@@ -408,38 +402,39 @@ const logout = () => {
 .avatar-wrap {
     display: flex;
     justify-content: center;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
 .avatar {
-    width: 96px;
-    height: 96px;
-    border-radius: 28px;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
     display: grid;
     place-items: center;
     color: #ffffff;
-    font-size: 32px;
-    font-weight: 950;
-    background: linear-gradient(135deg, var(--primary), var(--orange));
-    box-shadow: 0 16px 34px rgba(240, 74, 42, .24);
+    font-size: 28px;
+    font-weight: 850;
+    background: var(--primary);
+    box-shadow: 0 10px 22px rgba(182, 35, 35, .18);
 }
 
 .profile-summary-card h2 {
     color: var(--text);
-    font-size: 25px;
-    font-weight: 950;
+    font-size: 22px;
+    font-weight: 850;
     margin: 0 0 6px;
 }
 
 .profile-summary-card p {
     color: var(--muted);
     margin: 0;
+    font-size: 14px;
 }
 
 .summary-list {
     display: grid;
-    gap: 12px;
-    margin: 28px 0;
+    gap: 11px;
+    margin: 24px 0;
     text-align: left;
 }
 
@@ -447,9 +442,9 @@ const logout = () => {
     display: flex;
     justify-content: space-between;
     gap: 12px;
-    padding: 14px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, .75);
+    padding: 13px 14px;
+    border-radius: 10px;
+    background: #f6f1ea;
     border: 1px solid var(--border);
 }
 
@@ -461,49 +456,49 @@ const logout = () => {
 .summary-list strong {
     color: var(--text);
     font-size: 13px;
-    font-weight: 950;
+    font-weight: 850;
 }
 
 .profile-card {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .card-heading {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 18px;
+    padding-bottom: 16px;
 }
 
 .card-heading h2 {
     color: var(--text);
     margin: 4px 0 0;
-    font-size: 26px;
-    font-weight: 950;
-    letter-spacing: -.4px;
+    font-size: 24px;
+    font-weight: 850;
+    letter-spacing: -.25px;
 }
 
 label {
     display: block;
     color: var(--text);
-    font-size: 14px;
-    font-weight: 900;
-    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 7px;
 }
 
 input {
     width: 100%;
     border: 1px solid var(--border);
-    background: var(--surface-solid);
+    background: #ffffff;
     color: var(--text);
-    border-radius: 15px;
-    padding: 14px 15px;
-    transition: all .25s ease;
+    border-radius: 10px;
+    padding: 12px 13px;
+    transition: all .2s ease;
     outline: none;
 }
 
 input:focus {
-    border-color: rgba(240, 74, 42, .55);
-    box-shadow: 0 0 0 4px rgba(240, 74, 42, .10);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(182, 35, 35, .08);
 }
 
 input::placeholder {
@@ -512,52 +507,52 @@ input::placeholder {
 
 .invalid {
     border-color: var(--danger) !important;
-    box-shadow: 0 0 0 4px rgba(239, 63, 55, .10) !important;
+    box-shadow: 0 0 0 3px rgba(180, 35, 24, .10) !important;
 }
 
 small {
     display: block;
     color: var(--danger);
     font-size: 12px;
-    font-weight: 800;
-    margin-top: 7px;
+    font-weight: 750;
+    margin-top: 6px;
 }
 
 .success-message {
-    background: #f7ffee;
-    border: 1px solid rgba(127, 161, 75, .45);
+    background: #f4f8ef;
+    border: 1px solid rgba(71, 99, 47, .24);
     color: var(--green);
-    border-radius: 14px;
-    padding: 12px 14px;
-    font-weight: 900;
-    margin-bottom: 18px;
+    border-radius: 10px;
+    padding: 11px 13px;
+    font-weight: 800;
+    margin-bottom: 15px;
 }
 
 .save-btn,
 .logout-btn {
     width: 100%;
-    height: 54px;
-    border-radius: 16px;
-    font-weight: 950;
-    letter-spacing: .3px;
-    transition: all .25s ease;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: 850;
+    letter-spacing: .2px;
+    transition: all .2s ease;
 }
 
 .save-btn {
-    margin-top: 24px;
+    margin-top: 20px;
     border: none;
-    background: linear-gradient(135deg, var(--primary), var(--orange));
+    background: var(--primary);
     color: #ffffff;
-    box-shadow: 0 16px 34px rgba(240, 74, 42, .24);
+    box-shadow: 0 10px 22px rgba(182, 35, 35, .18);
 }
 
 .save-btn:hover:not(:disabled) {
-    background: linear-gradient(135deg, var(--primary-hover), var(--primary));
-    transform: translateY(-2px);
+    background: var(--primary-hover);
+    transform: translateY(-1px);
 }
 
 .save-btn:disabled {
-    background: #d7cec6;
+    background: #dadada;
     color: rgba(37, 37, 37, .45);
     box-shadow: none;
     cursor: not-allowed;
@@ -565,14 +560,14 @@ small {
 
 .logout-btn {
     border: 1px solid var(--border);
-    background: transparent;
+    background: #ffffff;
     color: var(--muted);
 }
 
 .logout-btn:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    background: var(--primary-soft);
+    border-color: var(--danger);
+    color: var(--danger);
+    background: var(--danger-soft);
 }
 
 @media (max-width: 991px) {
@@ -588,12 +583,16 @@ small {
 
 @media (max-width: 768px) {
     .profile-title h1 {
-        font-size: 34px;
+        font-size: 32px;
     }
 
     .profile-summary-card,
     .profile-card {
-        padding: 22px;
+        padding: 20px;
+    }
+
+    .card-heading h2 {
+        font-size: 22px;
     }
 }
 </style>
